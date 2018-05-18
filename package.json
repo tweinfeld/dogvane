@@ -1,0 +1,21 @@
+{
+  "name": "dogvane",
+  "version": "1.0.1",
+  "description": "A tiny, nimble Helm charts repository with support for multiple stores",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "motherfunctor",
+  "license": "ISC",
+  "dependencies": {
+    "cacache": "^11.0.2",
+    "concat-stream": "^1.6.2",
+    "express": "^4.16.3",
+    "js-yaml": "^3.11.0",
+    "kefir": "^3.8.3",
+    "ramda": "^0.25.0",
+    "tar-stream": "^1.6.1"
+  }
+}

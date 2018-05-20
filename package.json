@@ -1,6 +1,6 @@
 {
   "name": "dogvane",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A tiny, nimble Helm charts repository with support for multiple stores",
   "main": "server.js",
   "bin": "./cli.js",

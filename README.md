@@ -5,13 +5,13 @@ A tiny, nimble Helm charts repository with support for multiple stores
 To install Dogvane, run
 
 ```bash
-npm install dogvane --save
+npm install dogvane -g
 ```
 
 ## Running
 
 ```bash
-npm start
+dogvane
 ```
 
 Dogvane will automatically start and listen to incoming HTTP requests on http://localhost:8080

@@ -2,19 +2,21 @@ const
     R = require('ramda'),
     path = require('path'),
     storeFactory = require('./store/index'),
-    WebView = require('./web');
+    WebView = require('./web'),
+    defaultConfig = require('./config.js'),
+    { toCamel } = require('./lib/util');
 
-let store = storeFactory({
-    provider: {
-        type: "filesystem",
-        rootPath: path.join(__dirname, '.data')
-    }
-});
+const config = Object.assign(
+    defaultConfig,
+    Object
+        .keys(process.env)
+        .filter((key)=> key.startsWith('DOGVANE.'))
+        .reduce((ac, keyName)=> R.assocPath(keyName.split('.').slice(1).map(toCamel), process.env[keyName], ac), {}),
+);
 
-let web = new WebView({
-    port: 8080,
-    host: "http://localhost:8080"
-});
+const
+    store = storeFactory(config["store"]),
+    web = new WebView(config["web"]);
 
 web.on('chart:submit', ({ namespace, callback, chart })=> store.push(chart, namespace).then(R.partial(callback, [null]), callback));
 web.on('chart:list', ({ namespace, callback })=> store.list(namespace).then(R.partial(callback, [null]), callback));

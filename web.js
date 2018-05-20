@@ -5,11 +5,11 @@ const
     { EventEmitter } = require('events');
 
 const
-    DEFAULT_CHART_SIZE_LIMIT = 1024 * 50,
-    DEFAULT_CALLBACK_TIMEOUT = 1000,
+    DEFAULT_CHART_SIZE_LIMIT = 1024 * 500,  // 500Kb
+    DEFAULT_CALLBACK_TIMEOUT = 1000 * 5,    // 5 Seconds
     MANIFEST_VERSION = "v1",
     DEFAULT_HOST = "http://localhost:8080",
-    DEFAULT_CHART_FETCH_BASE_PATH_TEMPLATE = "/${namespace}/${filename}.tgz";
+    DEFAULT_CHART_FETCH_BASE_PATH_TEMPLATE = "${namespace}/${filename}.tgz";
 
 const
     timeoutCallback = (callback, timeout = DEFAULT_CALLBACK_TIMEOUT)=> {
@@ -57,7 +57,7 @@ module.exports = class extends EventEmitter {
             });
         });
 
-        app.get('/:namespace/index.yaml', (req, res)=> {
+        app.get('/:namespace/index.yaml', (req, res, next)=> {
             let namespace = req.params["namespace"];
             this.emit('chart:list', {
                 namespace,

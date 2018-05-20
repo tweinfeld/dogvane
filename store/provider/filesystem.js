@@ -3,14 +3,11 @@ const
     path = require('path'),
     kefir = require('kefir'),
     cacache = require('cacache'),
-    { Transform } = require('stream'),
-    crypto = require('crypto');
+    { sha256 } = require('../../lib/util');
 
 module.exports = function({ rootPath = path.join(__dirname, '.data') } = {}){
 
-    const
-        sha256 = (str)=> crypto.createHash('sha256').update(str, 'utf8').digest('hex'),
-        getBasePath = R.pipe(sha256, R.partial(path.join, [rootPath]));
+    const getBasePath = R.pipe(sha256, R.partial(path.join, [rootPath]));
 
     return {
         put(metadata, archiveStream, namespace){

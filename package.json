@@ -10,6 +10,7 @@
   "author": "motherfunctor",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.242.1",
     "cacache": "^11.0.2",
     "concat-stream": "^1.6.2",
     "express": "^4.16.3",

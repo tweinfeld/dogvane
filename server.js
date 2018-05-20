@@ -1,3 +1,4 @@
+#!/bin/sh
 const
     R = require('ramda'),
     path = require('path'),

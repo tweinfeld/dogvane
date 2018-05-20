@@ -3,9 +3,7 @@
   "version": "1.0.3",
   "description": "A tiny, nimble Helm charts repository with support for multiple stores",
   "main": "server.js",
-  "bin": {
-    "dogvane": "./server.js"
-  },
+  "bin": "./cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

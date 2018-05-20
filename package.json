@@ -1,12 +1,13 @@
 {
   "name": "dogvane",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny, nimble Helm charts repository with support for multiple stores",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "keywords": [],
+  "keywords": ["helm", "chart", "repo", "repository", "library", "s3"],
   "author": "motherfunctor",
   "license": "ISC",
   "dependencies": {
